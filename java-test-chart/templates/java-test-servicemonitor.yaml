@@ -1,0 +1,19 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: java-test-sm
+  labels:
+    app: java-test
+    name: java-test-sm
+    prometheus: kube-prometheus
+spec:
+  selector:
+    matchLabels:
+      name: java-test-service
+    namespaceSelector:
+      matchNames:
+        - monitoring
+  endpoints:
+    - port: metrics
+      interval: 10s
+      honorLabels: true

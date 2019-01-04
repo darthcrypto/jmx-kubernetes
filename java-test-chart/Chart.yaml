@@ -1,0 +1,4 @@
+description: java test app
+engine: gotpl
+name: java-test
+version: 0.1.0
